@@ -1,0 +1,6 @@
+0x5BCD174B:ntdl_RtlFillMemory
+0xAA7ADB76:kernel32_VirtualAlloc
+0x234CCD4B:ntdl_RtlMovememory
+0x26EB2DC1:kernel32_VirtualFree
+0x406FAB8E:kernel32_LoadLibraryA
+0xE99E570A:kernel32_GetProcAddress
