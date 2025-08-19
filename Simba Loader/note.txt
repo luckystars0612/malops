@@ -1,0 +1,5 @@
+0x401714: encrypted_shellcode_addr
+size: 0x9B000 (634880)
+size (debug) :0x87000
+
+alt:0x2140000
