@@ -1,0 +1,1 @@
+**shellcode ussually starts with e8c0**

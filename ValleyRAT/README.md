@@ -1,5 +1,7 @@
 ## 1.What is the entry point address of the sample?
 
+**0x45e540**
+
 ## 2.The sample is written in a two-letter programming language. Which one?
 DIE return it was written in GO
 
@@ -116,5 +118,31 @@ It reverse string from `a0Db0Lk0Hs0Ld0L` and extract config from this
 **80,8081,8888**
 
 ## 12.The sample implements a process-dumping function. What is the referenced dump filename format string?
+```bash
+LibraryW = LoadLibraryW(L"DbgHelp.dll");
+  v3 = LibraryW;
+  if ( !LibraryW )
+    return 0xFFFFFFFFLL;
+  MiniDumpWriteDump = (BOOL (__stdcall *)(HANDLE, DWORD, HANDLE, MINIDUMP_TYPE, PMINIDUMP_EXCEPTION_INFORMATION, PMINIDUMP_USER_STREAM_INFORMATION, PMINIDUMP_CALLBACK_INFORMATION))GetProcAddress(LibraryW, "MiniDumpWriteDump");
+  if ( MiniDumpWriteDump )
+  {
+    memset(FileName, 0, 520);
+    GetLocalTime(&SystemTime);
+    wsprintfW(
+      FileName,
+      L"%s-%04d%02d%02d-%02d%02d%02d.dmp",
+      L"!analyze -v",
+      SystemTime.wYear,
+      SystemTime.wMonth,
+      SystemTime.wDay,
+      SystemTime.wHour,
+      SystemTime.wMinute,
+      SystemTime.wSecond);
+    FileW = CreateFileW(FileName, 0xC0000000, 3u, 0, 2u, 0, 0);
+```
+
+**%s-%04d%02d%02d-%02d%02d%02d.dmp**
 
 ## 13.Which DLL is used for the dumping process?
+
+**DbgHelp.dll**
